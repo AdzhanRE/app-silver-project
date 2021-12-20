@@ -29,3 +29,27 @@ BoxDecoration kBoxDecoration() {
       )
   );
 }
+
+//Text & Font
+class KTextNSize extends StatelessWidget {
+  KTextNSize({required this.text, required this.fontSize, this.fontFamily, this.fontColor, this.fontWeight});
+
+  final String text;
+  final double fontSize;
+  final String? fontFamily;
+  final Color? fontColor;
+  final FontWeight? fontWeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(
+          fontSize: fontSize,
+          fontFamily: fontFamily,
+          fontWeight: fontWeight,
+          color: fontColor,
+      ),
+    );
+  }
+}

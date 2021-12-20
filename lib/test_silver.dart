@@ -2,29 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:test_project/components/top_container.dart';
 import 'package:test_project/components/main_content.dart';
 import 'package:test_project/components/main_title.dart';
+import 'components/tab_contain.dart';
+import 'constants.dart';
 
-import 'package:test_project/constants.dart';
-import 'package:test_project/components/tab_contain.dart';
-
-class DashboardScreen extends StatefulWidget {
-  static const String id = 'dashboard_screen';
+class TestSilver extends StatefulWidget {
+  static const String id = 'test_silver';
 
   @override
-  _DashboardScreenState createState() => _DashboardScreenState();
+  _TestSilverState createState() => _TestSilverState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen>{
+class _TestSilverState extends State<TestSilver> with SingleTickerProviderStateMixin{
+  late TabController controller;
 
   final List<Tab> tabs = <Tab>[
     const Tab(
-        icon: Icon(Icons.insert_chart),
-        text: 'KPI Progress Graph',
+      icon: Icon(Icons.insert_chart),
+      text: 'KPI Progress Graph',
     ),
     const Tab(
         icon: Icon(Icons.library_books),
         text: 'Notification'
     ),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    controller = TabController(length: 3, vsync: this);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +58,8 @@ class _DashboardScreenState extends State<DashboardScreen>{
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       TopContainer(
-                        //color: Colors.transparent,
-                        //height: 200,
+                          //color: Colors.transparent,
+                          //height: 200,
                           width: width,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -154,9 +160,7 @@ class _DashboardScreenState extends State<DashboardScreen>{
       ),
     );
   }
+
 }
-
-
-
 
 
